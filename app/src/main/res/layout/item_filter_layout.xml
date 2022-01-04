@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/filter_item_selector_bg">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/filterTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textColor="@color/filter_txt_clr"
+        android:textAlignment="center"
+        android:text="Popular"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

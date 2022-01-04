@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/active_filter_item_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/filter_item_bg.xml" value="0.2703125" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/filter_item_selector_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/filter_item_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_filter_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/item_show_layout.xml" value="0.4" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/show_item_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/layout/tv_shows_fragment.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

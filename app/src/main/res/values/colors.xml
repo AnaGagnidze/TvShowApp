@@ -8,4 +8,8 @@
     <color name="secondaryDarkColor">#0034ad</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_grey">#121212</color>
+    <color name="inactive_filter_bg">#343236</color>
+    <color name="filter_txt_clr">#9d9caa</color>
+    <color name="rating_star_clr">#ea9204</color>
 </resources>
