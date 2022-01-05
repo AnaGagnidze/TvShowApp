@@ -14,7 +14,7 @@ class TvShowsFragment : BaseFragment<TvShowsFragmentBinding>(TvShowsFragmentBind
     }
 
     private fun setUpFiltersRecyclerView(){
-        val filters = mutableListOf("Popular", "Top Rated", "Latest")
+        val filters = mutableListOf("Popular", "Top Rated", "Airing Today")
         adapter = FiltersRecyclerViewAdapter(filters)
         binding.filtersRV.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.filtersRV.adapter = adapter
