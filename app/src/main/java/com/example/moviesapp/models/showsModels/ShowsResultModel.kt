@@ -1,9 +1,9 @@
-package com.example.moviesapp.models
+package com.example.moviesapp.models.showsModels
 
 import com.example.moviesapp.utils.Constants
 import com.google.gson.annotations.SerializedName
 
-data class Results(
+data class ShowsResultModel(
     @SerializedName("first_air_date")
     val firstAirDate: String,
     @SerializedName("genre_ids")
