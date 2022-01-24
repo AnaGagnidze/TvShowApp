@@ -1,4 +1,4 @@
-package com.example.moviesapp.network
+package com.example.moviesapp.network.showsService
 
 import com.example.moviesapp.models.showsModels.ShowsResponseModel
 import com.example.moviesapp.utils.Constants.API_KEY
