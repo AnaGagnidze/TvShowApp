@@ -1,7 +1,7 @@
 package com.example.moviesapp.repository
 
 import com.example.moviesapp.models.showsModels.ShowsResponseModel
-import com.example.moviesapp.network.showsService.TvShowsServiceHelper
+import com.example.moviesapp.network.TvShowsServiceHelper
 import retrofit2.Response
 
 class TvShowsRepository(private val tvShowsServiceHelper: TvShowsServiceHelper) {
