@@ -6,12 +6,9 @@ import com.example.moviesapp.network.TvShowsService
 import com.example.moviesapp.network.TvShowsServiceHelper
 import retrofit2.Response
 
-class TvShowsServiceHelperImpl(private val tvShowsService: TvShowsService): TvShowsServiceHelper {
-    override suspend fun getPopularShows(): Response<ShowsResponseModel>  = tvShowsService.getPopularShows()
-
-    override suspend fun getTopRatedShows(): Response<ShowsResponseModel> = tvShowsService.getTopRatedShows()
-
-    override suspend fun getAiringTodayShows(): Response<ShowsResponseModel> = tvShowsService.getAiringTodayShows()
+class TvShowsServiceHelperImpl(private val tvShowsService: TvShowsService) : TvShowsServiceHelper {
+    override suspend fun getShows(showType: String, page: Int): Response<ShowsResponseModel> =
+        tvShowsService.getShows(showType = showType, page = page)
 
     override suspend fun getGenres(): Response<GenresResponseModel> = tvShowsService.getGenres()
 
