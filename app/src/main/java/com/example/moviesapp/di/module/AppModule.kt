@@ -1,6 +1,7 @@
 package com.example.moviesapp.di.module
 
 import com.example.moviesapp.BuildConfig
+import com.example.moviesapp.adapters.tvShowsAdapter.TvShowsDataSource
 import com.example.moviesapp.network.TvShowsService
 import com.example.moviesapp.network.TvShowsServiceHelper
 import com.example.moviesapp.utils.Constants
@@ -41,4 +42,5 @@ val appModule = module {
     single { provideOkHttpClient() }
     single { provideRetrofit(get(), Constants.SHOWS_BASE_URL) }
     single { provideTvShowsService(get()) }
+    factory { TvShowsDataSource(get(), get()) }
 }
