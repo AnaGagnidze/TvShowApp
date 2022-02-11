@@ -20,10 +20,10 @@ class FiltersRecyclerViewAdapter(private val items: MutableList<String>) :
     inner class FiltersViewHolder(private val binding: ItemFilterLayoutBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
         fun bind() {
-            binding.filterTxt.text = items[adapterPosition]
+            binding.filterTxt.text = items[absoluteAdapterPosition]
             binding.root.setOnClickListener(this)
 
-            if (currentFilterPosition == adapterPosition) {
+            if (currentFilterPosition == absoluteAdapterPosition) {
                 binding.rootLayout.isSelected = true
                 binding.filterTxt.setTextColor(
                     ContextCompat.getColor(
@@ -43,9 +43,9 @@ class FiltersRecyclerViewAdapter(private val items: MutableList<String>) :
         }
 
         override fun onClick(p0: View?) {
-            currentFilterPosition = adapterPosition
+            currentFilterPosition = absoluteAdapterPosition
             notifyDataSetChanged()
-//            onDrawableClick.invoke(adapterPosition)
+            onDrawableClick.invoke(currentFilterPosition)
         }
     }
 
