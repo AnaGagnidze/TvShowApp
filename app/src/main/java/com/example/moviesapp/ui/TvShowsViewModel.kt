@@ -10,10 +10,7 @@ import com.example.moviesapp.repository.TvShowsRepository
 
 class TvShowsViewModel(private val tvShowsRepository: TvShowsRepository) : ViewModel() {
 
-
-
     fun getTvShows(keyWord: String): LiveData<PagingData<ShowsResultModel>> {
-
         return Pager(PagingConfig(pageSize = 1)) {
             TvShowsDataSource(tvShowsRepository, keyWord)
         }.liveData.cachedIn(viewModelScope)
