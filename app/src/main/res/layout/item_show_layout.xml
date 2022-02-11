@@ -2,13 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginEnd="5dp"
     android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/showImgV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
         android:padding="8dp"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintTop_toTopOf="parent"
@@ -63,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/ratingStarIV"
         app:layout_constraintStart_toEndOf="@id/showImgV"
         android:text="Comedy, Drama"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/filter_txt_clr"
         android:textSize="11sp"
         android:id="@+id/showGenresTV"

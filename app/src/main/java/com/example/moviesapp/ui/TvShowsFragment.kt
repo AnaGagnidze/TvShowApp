@@ -19,6 +19,13 @@ class TvShowsFragment : BaseFragment<TvShowsFragmentBinding>(TvShowsFragmentBind
         setUpFiltersRecyclerView()
         setUpTvShowsRecyclerView()
         observe()
+        setListeners()
+    }
+
+    private fun setListeners(){
+        binding.swipeRefresh.setOnRefreshListener {
+            observe()
+        }
     }
 
     private fun setUpFiltersRecyclerView(){
@@ -38,6 +45,7 @@ class TvShowsFragment : BaseFragment<TvShowsFragmentBinding>(TvShowsFragmentBind
         tvShowsViewModel.getTvShows("popular").observe(viewLifecycleOwner, {
             showsAdapter.submitData(lifecycle, it)
         })
+        binding.swipeRefresh.isRefreshing = false
     }
 
 
