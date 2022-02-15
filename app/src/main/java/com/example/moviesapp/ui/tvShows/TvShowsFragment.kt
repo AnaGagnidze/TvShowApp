@@ -1,4 +1,4 @@
-package com.example.moviesapp.ui
+package com.example.moviesapp.ui.tvShows
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
