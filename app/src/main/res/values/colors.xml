@@ -12,4 +12,5 @@
     <color name="inactive_filter_bg">#343236</color>
     <color name="filter_txt_clr">#9d9caa</color>
     <color name="rating_star_clr">#ea9204</color>
+    <color name="toned_down_white">#CFCECE</color>
 </resources>
