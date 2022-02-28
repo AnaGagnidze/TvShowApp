@@ -1,6 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
+    android:background="@color/dark_grey">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottomGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.053" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.947" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivShowPoster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            app:layout_constraintDimensionRatio="1.3:1"
+            app:layout_constraintTop_toBottomOf="@id/topGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/ivShowPoster"
+            android:background="@drawable/bg_divider"/>
+
+        <Space
+            android:id="@+id/dividerBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintDimensionRatio="23"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/showTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:text="Deadpool"
+            app:layout_constraintTop_toBottomOf="@id/dividerBottomMargin"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"/>
+
+        <Space
+            android:id="@+id/titleBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/showTitleTv"
+            app:layout_constraintDimensionRatio="40"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/yearTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/filter_txt_clr"
+            android:text="2016"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/yearEndMargin"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@id/titleBottomMargin"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Space
+            android:id="@+id/yearEndMargin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/yearTv"
+            app:layout_constraintEnd_toStartOf="@id/dotDivider"
+            app:layout_constraintWidth_percent="0.02"/>
+
+        <View
+            android:id="@+id/dotDivider"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            app:layout_constraintStart_toEndOf="@+id/yearEndMargin"
+            android:background="@drawable/dot_divider"
+            app:layout_constraintTop_toTopOf="@id/yearTv"
+            app:layout_constraintEnd_toStartOf="@id/dotDividerEndMargin"
+            app:layout_constraintBottom_toBottomOf="@+id/yearTv"/>
+        <Space
+            android:id="@+id/dotDividerEndMargin"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/dotDivider"
+            app:layout_constraintEnd_toStartOf="@id/directorTv"
+            app:layout_constraintWidth_percent="0.02"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/directorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/filter_txt_clr"
+            android:text="Tom Miller"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleBottomMargin"
+            app:layout_constraintStart_toEndOf="@id/dotDividerEndMargin"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ratingStarIV"
+            app:layout_constraintTop_toBottomOf="@id/directorTv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/showRatingNumTV"
+            android:src="@drawable/ic_star_rate"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/showRatingNumTV"
+            app:layout_constraintTop_toTopOf="@id/ratingStarIV"
+            app:layout_constraintBottom_toBottomOf="@id/ratingStarIV"
+            app:layout_constraintStart_toEndOf="@id/ratingStarIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="2dp"
+            android:text="8.7"
+            android:textSize="12sp"
+            android:textColor="@color/filter_txt_clr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:id="@+id/ratingBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/ratingStarIV"
+            app:layout_constraintDimensionRatio="40"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/filtersRV"
+            app:layout_constraintTop_toBottomOf="@id/ratingBottomMargin"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_filter_layout"
+            tools:itemCount="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Space
+            android:id="@+id/genresBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/filtersRV"
+            app:layout_constraintDimensionRatio="40"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/showDescriptionTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/genresBottomMargin"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            android:textColor="@color/toned_down_white"
+            android:text="Deadpool is a 2016 American superhero film based on the Marvel Comics character of the same name. ... In the film, Wade Wilson hunts the man who gave him mutant abilities and a scarred physical appearance, becoming the antihero Deadpool."
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"/>
+
+        <Space
+            android:id="@+id/descriptionBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/showDescriptionTv"
+            app:layout_constraintDimensionRatio="30"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/similarShowsTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Similar Shows"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/descriptionBottomMargin"/>
+
+        <Space
+            android:id="@+id/similarShowsTitleBottomMargin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/similarShowsTitleTv"
+            app:layout_constraintDimensionRatio="30"/>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/similarShowsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_similar_show_layout"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintTop_toBottomOf="@id/similarShowsTitleBottomMargin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

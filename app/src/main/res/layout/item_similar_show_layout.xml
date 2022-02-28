@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatImageView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/similarShow"
+    android:layout_width="120dp"
+    android:layout_height="150dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp">
+
+</androidx.appcompat.widget.AppCompatImageView>
