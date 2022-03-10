@@ -5,7 +5,11 @@ import androidx.paging.PagingState
 import com.example.moviesapp.models.showsModels.ShowsResultModel
 import com.example.moviesapp.repository.TvShowsRepository
 
-class TvShowsDataSource(private val tvShowsRepository: TvShowsRepository, private val showType: String) :
+class TvShowsDataSource(
+    private val tvShowsRepository: TvShowsRepository,
+    private val showType: String? = null,
+    private val tvId: Int? = null
+) :
     PagingSource<Int, ShowsResultModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, ShowsResultModel>): Int? {
@@ -19,7 +23,11 @@ class TvShowsDataSource(private val tvShowsRepository: TvShowsRepository, privat
         return try {
 
             val currentPage = params.key ?: 1
-            val response = tvShowsRepository.getShows(showType = showType, currentPage)
+            val response = if (showType != null) {
+                tvShowsRepository.getShows(showType = showType, currentPage)
+            } else {
+                tvShowsRepository.getSimilarShows(tvId = tvId, currentPage)
+            }
             val responseData = mutableListOf<ShowsResultModel>()
             val data = response.body()?.results ?: emptyList()
             responseData.addAll(data)
@@ -32,6 +40,7 @@ class TvShowsDataSource(private val tvShowsRepository: TvShowsRepository, privat
 
         } catch (e: Exception) {
             return LoadResult.Error(e)
-        }    }
+        }
+    }
 
 }
