@@ -6,12 +6,12 @@ import com.example.moviesapp.network.TvShowsServiceHelper
 import retrofit2.Response
 
 class TvShowsRepository(private val tvShowsServiceHelper: TvShowsServiceHelper) {
-    suspend fun getShows(showType: String, page: Int): Response<ShowsResponseModel> =
+    suspend fun getShows(showType: String?, page: Int): Response<ShowsResponseModel> =
         tvShowsServiceHelper.getShows(showType, page)
 
     suspend fun getShowDetails(tvId: Int?): Response<ShowDetailResponseModel> =
         tvShowsServiceHelper.getShowDetails(tvId)
 
-    suspend fun getSimilarShows(tvId: Int?): Response<ShowsResponseModel> =
-        tvShowsServiceHelper.getSimilarShows(tvId)
+    suspend fun getSimilarShows(tvId: Int?, page: Int): Response<ShowsResponseModel> =
+        tvShowsServiceHelper.getSimilarShows(tvId, page)
 }
