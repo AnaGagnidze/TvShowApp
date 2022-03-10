@@ -14,12 +14,22 @@ class FiltersRecyclerViewAdapter(private val items: MutableList<String>) :
     RecyclerView.Adapter<FiltersRecyclerViewAdapter.FiltersViewHolder>() {
 
 
-    private var currentFilterPosition: Int = 0
+    var currentFilterPosition: Int = 0
     lateinit var onDrawableClick: OnFilterClick
+
+
+    companion object {
+        private const val VIEW_TYPE_FILTER = 0
+        private const val VIEW_TYPE_GENRE = 1
+    }
 
     inner class FiltersViewHolder(private val binding: ItemFilterLayoutBinding) :
         RecyclerView.ViewHolder(binding.root), View.OnClickListener {
-        fun bind() {
+        fun bindGenres() {
+            binding.filterTxt.text = items[absoluteAdapterPosition]
+        }
+
+        fun bindFilter() {
             binding.filterTxt.text = items[absoluteAdapterPosition]
             binding.root.setOnClickListener(this)
 
@@ -54,8 +64,17 @@ class FiltersRecyclerViewAdapter(private val items: MutableList<String>) :
     )
 
     override fun onBindViewHolder(holder: FiltersViewHolder, position: Int) {
-        holder.bind()
+        if (getItemViewType(position) == VIEW_TYPE_FILTER) holder.bindFilter() else holder.bindGenres()
+
     }
 
     override fun getItemCount() = items.size
+
+    override fun getItemViewType(position: Int): Int {
+        return when {
+            items[position] == "Popular" || items[position] == "Top Rated" ||
+                    items[position] == "Airing Today" -> VIEW_TYPE_FILTER
+            else -> VIEW_TYPE_GENRE
+        }
+    }
 }
