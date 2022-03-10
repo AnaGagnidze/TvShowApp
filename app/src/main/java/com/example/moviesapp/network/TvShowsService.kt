@@ -13,7 +13,7 @@ import retrofit2.http.Query
 interface TvShowsService {
     @GET("tv/{showType}")
     suspend fun getShows(
-        @Path("showType") showType: String,
+        @Path("showType") showType: String?,
         @Query("api_key") api_key: String? = API_KEY,
         @Query("page") page: Int? = 1
     ): Response<ShowsResponseModel>

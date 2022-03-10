@@ -8,13 +8,13 @@ import com.example.moviesapp.network.TvShowsServiceHelper
 import retrofit2.Response
 
 class TvShowsServiceHelperImpl(private val tvShowsService: TvShowsService) : TvShowsServiceHelper {
-    override suspend fun getShows(showType: String, page: Int): Response<ShowsResponseModel> =
+    override suspend fun getShows(showType: String?, page: Int): Response<ShowsResponseModel> =
         tvShowsService.getShows(showType = showType, page = page)
 
     override suspend fun getShowDetails(tvId: Int?): Response<ShowDetailResponseModel> =
         tvShowsService.getShowDetails(tvId)
 
-    override suspend fun getSimilarShows(tvId: Int?): Response<ShowsResponseModel> =
+    override suspend fun getSimilarShows(tvId: Int?, page: Int): Response<ShowsResponseModel> =
         tvShowsService.getSimilarShows(tvId)
 
 }
