@@ -1,5 +1,6 @@
 package com.example.moviesapp.ui.tvShows
 
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.R
 import com.example.moviesapp.adapters.FiltersRecyclerViewAdapter
@@ -19,13 +20,18 @@ class TvShowsFragment : BaseFragment<TvShowsFragmentBinding>(TvShowsFragmentBind
     override fun setUpFragment() {
         setUpFiltersRecyclerView()
         setUpTvShowsRecyclerView()
-        observe("popular")
+        observe(FiltersEnum.POPULAR.filterName)
         setListeners()
     }
 
     private fun setListeners() {
         binding.swipeRefresh.setOnRefreshListener {
-            observe("popular")
+            when (filtersAdapter.currentFilterPosition) {
+                0 -> observe(FiltersEnum.POPULAR.filterName)
+                1 -> observe(FiltersEnum.TOP_RATED.filterName)
+                2 -> observe(FiltersEnum.AIRING_TODAY.filterName)
+                else -> observe(FiltersEnum.POPULAR.filterName)
+            }
         }
     }
 
@@ -41,19 +47,26 @@ class TvShowsFragment : BaseFragment<TvShowsFragmentBinding>(TvShowsFragmentBind
         binding.filtersRV.adapter = filtersAdapter
         filtersAdapter.onDrawableClick = { position ->
             when (position) {
-                0 -> observe(FiltersEnum.POPULAR.name)
-                1 -> observe(FiltersEnum.TOP_RATED.name)
-                2 -> observe(FiltersEnum.AIRING_TODAY.name)
-                else -> observe(FiltersEnum.POPULAR.name)
+                0 -> observe(FiltersEnum.POPULAR.filterName)
+                1 -> observe(FiltersEnum.TOP_RATED.filterName)
+                2 -> observe(FiltersEnum.AIRING_TODAY.filterName)
+                else -> observe(FiltersEnum.POPULAR.filterName)
             }
         }
     }
 
     private fun setUpTvShowsRecyclerView() {
-        showsAdapter = TvShowsRecyclerViewAdapter()
+        showsAdapter = TvShowsRecyclerViewAdapter(false)
         binding.showsRV.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.showsRV.adapter = showsAdapter
+        showsAdapter.onDrawableClick = {
+            findNavController().navigate(
+                TvShowsFragmentDirections.actionTvShowsFragmentToTvShowDetailsFragment(
+                    it.toString()
+                )
+            )
+        }
     }
 
     private fun observe(keyword: String) {
