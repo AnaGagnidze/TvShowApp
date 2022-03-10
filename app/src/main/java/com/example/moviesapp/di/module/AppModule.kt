@@ -3,7 +3,6 @@ package com.example.moviesapp.di.module
 import com.example.moviesapp.BuildConfig
 import com.example.moviesapp.adapters.tvShowsAdapter.TvShowsDataSource
 import com.example.moviesapp.network.TvShowsService
-import com.example.moviesapp.network.TvShowsServiceHelper
 import com.example.moviesapp.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -33,9 +32,6 @@ private fun provideRetrofit(
 
 private fun provideTvShowsService(retrofit: Retrofit): TvShowsService = retrofit.create(
     TvShowsService::class.java)
-
-private fun provideTvShowsHelper(tvShowsServiceHelper: TvShowsServiceHelper): TvShowsServiceHelper = tvShowsServiceHelper
-
 
 
 val appModule = module {
