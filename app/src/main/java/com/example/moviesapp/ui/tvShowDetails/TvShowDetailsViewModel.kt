@@ -33,6 +33,7 @@ class TvShowDetailsViewModel(private val tvId: String?,
     }
 
     private suspend fun getShowDetails(tvId: Int?) {
+        showDetails.postValue(ResultControl.loading(true))
         val result = tvShowsRepository.getShowDetails(tvId)
         if (result.isSuccessful) {
             val info = result.body()

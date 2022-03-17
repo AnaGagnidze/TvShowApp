@@ -1,6 +1,7 @@
 package com.example.moviesapp.ui.tvShowDetails
 
-import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapp.adapters.FiltersRecyclerViewAdapter
 import com.example.moviesapp.adapters.tvShowsAdapter.TvShowsRecyclerViewAdapter
@@ -9,6 +10,7 @@ import com.example.moviesapp.databinding.TvShowDetailsFragmentBinding
 import com.example.moviesapp.models.showDetailModels.ShowDetailResponseModel
 import com.example.moviesapp.network.ResultControl
 import com.example.moviesapp.utils.extensions.setImageUrl
+import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -19,13 +21,14 @@ class TvShowDetailsFragment :
         parametersOf(TvShowDetailsFragmentArgs.fromBundle(requireArguments()).tvId)
     }
 
-    private lateinit var similarShowsAdapter: TvShowsRecyclerViewAdapter
-    private lateinit var genresAdapter: FiltersRecyclerViewAdapter
+    private var similarShowsAdapter: TvShowsRecyclerViewAdapter? = null
+    private var genresAdapter: FiltersRecyclerViewAdapter? = null
 
 
     override fun setUpFragment() {
         setUpSimilarShowsRecyclerView()
         observe()
+        setClickListeners()
     }
 
     private fun setUpSimilarShowsRecyclerView() {
@@ -35,19 +38,36 @@ class TvShowDetailsFragment :
         binding.similarShowsRV.adapter = similarShowsAdapter
     }
 
+    private fun setClickListeners() {
+        binding.retryButton.setOnClickListener{
+            observe()
+        }
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
+
     private fun observe() {
         showDetailsViewModel.getSimilarShows().observe(viewLifecycleOwner, {
-            similarShowsAdapter.submitData(lifecycle, it)
+            similarShowsAdapter?.submitData(lifecycle, it)
         })
 
         showDetailsViewModel._showDetails.observe(viewLifecycleOwner, {
             when (it.status) {
                 ResultControl.Status.SUCCESS -> {
                     handleData(it.data)
+                    binding.wholePageItemsGr.isVisible = true
+                    binding.progressBar.isVisible = it.refreshing
                 }
 
                 ResultControl.Status.ERROR -> {
-                    Toast.makeText(requireActivity(), "${it.message}", Toast.LENGTH_SHORT).show()
+                    binding.errorItemsGr.isVisible = true
+                    binding.errorText.text = it.message
+                    binding.progressBar.isVisible = it.refreshing
+                }
+                ResultControl.Status.LOADING -> {
+                    binding.progressBar.isVisible = it.refreshing
                 }
             }
         })
@@ -83,5 +103,11 @@ class TvShowDetailsFragment :
         }
 
         binding.directorTv.text = directors.joinToString(", ")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        similarShowsAdapter = null
+        genresAdapter = null
     }
 }

@@ -78,6 +78,34 @@
             app:layout_constraintTop_toBottomOf="@id/showsRV"
             app:layout_constraintDimensionRatio="15"/>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/errorImV"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_outline_sentiment_dissatisfied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/errorText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/errorImV"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/problem_icon_text"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/errorItemsGr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="errorImV, errorText"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
