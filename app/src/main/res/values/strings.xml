@@ -3,4 +3,6 @@
     <string name="popular_filter_icon_text">Popular</string>
     <string name="top_rated_filter_icon_text">Top Rated</string>
     <string name="Airing_today_filter_icon_text">Airing Today</string>
+    <string name="problem_icon_text">There seems to be a problem</string>
+    <string name="retry_button_text">Retry</string>
 </resources>
