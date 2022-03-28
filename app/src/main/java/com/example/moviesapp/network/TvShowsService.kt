@@ -1,10 +1,8 @@
 package com.example.moviesapp.network
 
-import com.example.moviesapp.models.genresModels.GenresResponseModel
+import com.example.moviesapp.BuildConfig.API_KEY
 import com.example.moviesapp.models.showDetailModels.ShowDetailResponseModel
 import com.example.moviesapp.models.showsModels.ShowsResponseModel
-import com.example.moviesapp.utils.Constants
-import com.example.moviesapp.utils.Constants.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
