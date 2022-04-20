@@ -77,6 +77,13 @@ dependencies {
     //    Pagination
     implementation("androidx.paging:paging-runtime-ktx:3.1.1")
 
+    //    Shimmer for skeleton
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //    Alert
+    implementation 'com.github.tapadoo:alerter:7.2.4'
+
+    //    Splash screen
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
 
 }
