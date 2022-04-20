@@ -13,4 +13,5 @@
     <color name="filter_txt_clr">#9d9caa</color>
     <color name="rating_star_clr">#ea9204</color>
     <color name="toned_down_white">#CFCECE</color>
+    <color name="error_color">#cc0000</color>
 </resources>

@@ -5,4 +5,5 @@
     <string name="Airing_today_filter_icon_text">Airing Today</string>
     <string name="problem_icon_text">There seems to be a problem</string>
     <string name="retry_button_text">Retry</string>
+    <string name="internet_connection_error_msg">You do not have a connection with internet</string>
 </resources>
