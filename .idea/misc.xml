@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/AGagnidze/AndroidStudioProjects/TvShowApp/app/src/main/res/drawable/ic_baseline_movie_filter_24.xml" value="0.1815" />
+        <entry key="..\:/Users/AGagnidze/AndroidStudioProjects/TvShowApp/app/src/main/res/xml/shortcuts.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/active_filter_item_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/filter_item_bg.xml" value="0.2703125" />
         <entry key="..\:/Users/agagnidze/AndroidStudioProjects/MoviesApp/app/src/main/res/drawable/filter_item_selector_bg.xml" value="0.2703125" />
